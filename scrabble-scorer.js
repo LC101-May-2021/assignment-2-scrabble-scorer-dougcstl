@@ -2,6 +2,8 @@
 
 const input = require("readline-sync");
 
+let userWord = "";
+
 const oldPointStructure = {
   1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
   2: ['D', 'G'],
@@ -33,18 +35,46 @@ function oldScrabbleScorer(word) {
 // don't change the names or your program won't work as expected. //
 
 function initialPrompt() {
-   console.log("Let's play some scrabble! Enter a word:");
-};
+   console.log("Let's play some scrabble!" + "\n");
+   userWord = input.question("Enter a word to score: ");
+   let scoringAlgorithm = input.question(`Which scoring algorithm would you like to use? \n
+   0 - Scrabble: The traditional scoring algorithm.
+   1 - Simple Score: Each letter is worth 1 point.
+   2 - Bonus Vowels: Vowels are 3 pts, consonants are 1pt
+   Enter 0,1,2: `);
 
-let simpleScore;
+  return scoringAlgorithm;
 
-let vowelBonusScore;
+   // console.log(oldScrabbleScorer(userWord))   
+}
+
+function simpleScore(word) {
+  let score = word.toLowerCase().length;
+  return score;
+}
+
+// console.log(simpleScore("userWord"));
+
+let vowelBonusScore = function(word) {
+  let total=0;
+  let vowels=['a','e','i','o','u'];
+  for (let i = 0; i < word.length; i++) {
+    if(vowels.includes(word[i])) {
+    total += 3 
+  } else if(word[i]===' ') {
+} else {
+  total += 1}
+  return total;
+  }
+}
 
 let scrabbleScore;
 
-const scoringAlgorithms = [];
+const scoringAlgorithms = [simpleScore, vowelBonusScore, oldScrabbleScorer];
 
-function scorerPrompt() {}
+function scorerPrompt() {
+
+}
 
 function transform() {};
 
