@@ -38,9 +38,9 @@ function initialPrompt() {
    console.log("Let's play some scrabble!" + "\n");
    userWord = input.question("Enter a word to score: ");
    let scoringAlgorithm = input.question(`Which scoring algorithm would you like to use? \n
-   0 - Scrabble: The traditional scoring algorithm.
-   1 - Simple Score: Each letter is worth 1 point.
-   2 - Bonus Vowels: Vowels are 3 pts, consonants are 1pt
+   0 - Simple: One point per character
+   1 - Vowel Bonus: Vowels are wort 3 points
+   2 - Scrabble: Uses scrabble point system
    Enter 0,1,2: `);
 
   return scoringAlgorithm;
