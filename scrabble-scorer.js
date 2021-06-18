@@ -59,7 +59,7 @@ let vowelBonusScore = function(word) {
   return total;
 }
 
-let scrabbleScore;
+let scrabbleScore = "";
 
 
 
